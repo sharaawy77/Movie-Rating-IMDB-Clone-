@@ -1,0 +1,98 @@
+<div class="row">
+    <div class="col-md-8">
+      <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div   *ngFor="let moviee of AvailableTrendsmovies ;let i = index" routerLink="/details/{{moviee?.id}}" class="carousel-item active">
+            <img src="http://image.tmdb.org/t/p/w500/{{moviee?.poster_path}} " style="height: 650px;" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>{{moviee?.title}}</h5>
+              <p>{{moviee?.overview}}</p>
+            </div>
+          </div>
+          
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+       
+    </div>
+    <div class="col-md-4">
+      <div *ngFor="let moviee of LastestTrendsmovies ;let i = index" routerLink="/details/{{moviee?.id}}" class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="http://image.tmdb.org/t/p/w500/{{moviee?.poster_path}} " class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{moviee?.title}}</h5>
+              <p class="card-text"><i class="bi bi-star"></i> {{moviee?.vote_average}}</p>
+              <p class="card-text"><small class="text-body-secondary">{{moviee?.release_date}}</small></p>
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
+     
+    </div>
+ 
+</div>
+<br>
+
+<div class="row">
+    <h1 style="color: blue;">Trending Movies</h1>
+    <hr>
+    <ng-container  >
+      <div *ngFor="let moviee of Trendsmovies ;let i = index"  class="col-md-3" routerLink="/details/{{moviee?.id}}">
+        <div class="card">
+          <img src="http://image.tmdb.org/t/p/w500/{{moviee?.poster_path}} "alt="img"/>
+          <div class="card-body">
+            <h5 class="card-title">{{moviee?.title}}</h5>
+            <p class="card-text">{{moviee?.release_date}}</p>
+          </div>
+          <div class="card-footer text-center text-muted">
+            <span style="float: left;" ><i class="bi bi-calendar"></i> 2023</span>
+            <span ><i class="bi bi-star"></i>{{moviee?.vote_average}}</span>
+            <span style="float: right;"><i class="bi bi-trophy"></i> {{i+1}}</span>
+  
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    
+    
+    
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <iframe width="100%" height="360" 
+          src="https://www.youtube.com/embed/8d2_pXEiWAo?si=QNHGlqyLLRA3fONm"
+           title="YouTube video player" 
+           frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+             allowfullscreen></iframe>
+      </div>
+      <div class="modal-footer justify-content-center">
+          <b>movieTitle</b>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,105 @@
+<div class="row">
+    <div class="col-md-6">
+        <b>
+            <h1 style="color:blue ;">{{movieDetail?.title}}</h1>
+
+        </b>
+        <span style="color: blue;">Status</span>
+        <span> : {{movieDetail?.status}} </span>
+        <b>
+            <span style="color: blue;">Duration</span>
+
+        </b>
+
+        <span> : {{movieDetail?.runtime}} </span>
+
+
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6">
+                <br>
+                <h5>IMDB Rating</h5>
+                <h4>{{movieDetail?.vote_average}}</h4>
+
+            </div>
+            <div class="col-md-6">
+                <br>
+                <h5>IMDB Votes</h5>
+                <h4>{{movieDetail?.vote_count}}</h4>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+</div>
+
+<br>
+
+<div class="row">
+    <div class="col-md-6">
+        <img src="http://image.tmdb.org/t/p/w500/{{movieDetail?.poster_path}} " alt="img" />
+
+    </div>
+    <div class="col-md-6">
+        <p class="lead">{{movieDetail?.overview}}</p>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="header text-center">Production Companies</div>
+                    <ul class="list-group list-group-flush">
+                        <li *ngFor="let company of movieDetail?.production_companies ;let i = index"
+                            class="list-group-item">{{company.name}}</li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="header text-center"> Genres</div>
+                    <ul class="list-group list-group-flush">
+                        <li *ngFor="let Genre of movieDetail?.genres ;let i = index" class="list-group-item">
+                            {{Genre.name}}</li>
+
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<hr>
+<br>
+
+
+<br>
+<div class="Row">
+    <h1 style="color: blue;">Reviews</h1>
+    <div class="col-md-12 ">
+        <app-details-reviews></app-details-reviews>
+    </div>
+    <div class="text-center">
+        <a class="btn btn-warning" routerLink="/details/reviews/{{movieId}}">
+            View All Reviews
+        </a>
+    </div>
+</div>
+<br>
+<div class="Row">
+    <h1 style="color: blue;">Similar Movies</h1>
+    <div class="col-md-12 text-center">
+        <app-details-movies></app-details-movies>
+    </div>
+    <div class="text-center">
+        <a class="btn btn-warning" routerLink="/details/movies/{{movieDetail?.id}}">
+            View All Similar Movies
+        </a>
+    </div>
+</div>
+<br>

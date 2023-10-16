@@ -1,0 +1,9 @@
+<figure *ngFor="let moviee of similarmovies ;let i = index" class="figure">
+    <img src="http://image.tmdb.org/t/p/w500/{{moviee?.poster_path}} " class="figure-img img-fluid rounded img-thumbnail" 
+    alt="..." style="max-width: 190px;">
+    <figcaption class="figure-caption">{{moviee?.title}}</figcaption>
+    <figcaption class="figure-caption"><i class="bi bi-star"> </i> {{moviee?.vote_average}}</figcaption>
+
+  
+</figure>
+ 
